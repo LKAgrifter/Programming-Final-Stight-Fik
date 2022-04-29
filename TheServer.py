@@ -9,11 +9,11 @@ BUFFERSIZE = 512
 
 outgoing = []
 
-class Minion:
-  def __init__(self, ownerid):
+class Player:
+  def __init__(self, UID):
     self.x = 50
     self.y = 50
-    self.ownerid = ownerid
+    self.ownerid = UID
 
 minionmap = {}
 
