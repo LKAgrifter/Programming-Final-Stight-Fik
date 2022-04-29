@@ -61,7 +61,9 @@ while run:
  pygame.draw.rect(win, (91,212,41), (0,1080-220,1920,220))
  player = Player(200,200,2)
  Player2 = Player(800,300,3)
+ Player3 = Player(1600,400,4)
  pygame.display.update()
+ #blahabasjsad
 
 
 pygame.quit()
