@@ -62,6 +62,7 @@ while run:
  player = Player(200,200,2)
  Player2 = Player(800,300,3)
  pygame.display.update()
-
-
+#It's A Game!
+#nice!
+#why isn't working?
 pygame.quit()
