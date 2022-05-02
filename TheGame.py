@@ -25,6 +25,7 @@ def set_server_ip(ip):
      serverip = ip
 def start_game():
      run = True
+     menu.disable()
      print('billybob')
 menu = pygame_menu.Menu('Welcome', 1920, 1080,theme=pygame_menu.themes.THEME_BLUE)
 menu.add.text_input('Name: ', default='John Doe')
@@ -33,20 +34,8 @@ menu.add.text_input('Sever Port: ', default='4321')
 menu.add.button('Play', start_game)
 menu.add.button('Quit', pygame_menu.events.EXIT)
 
+
 #More menu stuff
-while run == False:
-
-    events = pygame.event.get()
-    for event in events:
-        if event.type == pygame.QUIT:
-            exit()
-
-    if menu.is_enabled():
-        menu.update(events)
-        menu.draw(win)
-
-    pygame.display.update()
-pygame.display.update
 
 
 class Player(object):
@@ -80,8 +69,20 @@ height =  128
 xvel=0.5
 yvel=0
 isJumping=False
-run = False
+run = True
 while run:
+ #menu handling
+ events = pygame.event.get()
+ for event in events:
+     if event.type == pygame.QUIT:
+          exit()
+     if menu.is_enabled() == True:
+          menu.update(events)
+          menu.draw(win)
+     else:
+          pass
+     pygame.display.update()
+ #game handling
  for event in pygame.event.get():
    if event.type == pygame.QUIT:
      run =False
@@ -107,7 +108,7 @@ while run:
  Player2 = Player(800,300,3)
  Player3 = Player(1600,400,4)
  pygame.display.update()
- #blahabasjsad
+ 
 
 
 pygame.quit()
