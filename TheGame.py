@@ -25,6 +25,7 @@ def set_server_ip(ip):
      serverip = ip
 def start_game():
      run = True
+     print('billybob')
 menu = pygame_menu.Menu('Welcome', 1920, 1080,theme=pygame_menu.themes.THEME_BLUE)
 menu.add.text_input('Name: ', default='John Doe')
 menu.add.text_input('Server Adress: ', default='mc.skilakeanna.com')
