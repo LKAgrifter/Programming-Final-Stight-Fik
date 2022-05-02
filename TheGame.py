@@ -2,9 +2,18 @@ import pygame
 import sys
 import random
 import subprocess
+import pygame_menu
+import pickle
+import select
+import socket
+
+BUFFRERSIZE = 2048
+
 pygame.init()
 win = pygame.display.set_mode((1920,1080), pygame.FULLSCREEN)
 pygame.display.set_caption("Stight Fik")
+
+clock = pygame.time.Clock()
 
 
 class Player(object):
@@ -27,6 +36,8 @@ class Player(object):
           self.vel = self.vec(0,0)
           self.acc = self.vec(0,0)
 player = Player(200,200,1)
+
+
 
 #Player(100,100,1)        
 x = 40
