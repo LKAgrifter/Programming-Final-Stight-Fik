@@ -9,11 +9,43 @@ import socket
 
 BUFFRERSIZE = 2048
 
+# Server info
+serverip = 'minecraft.skilakeanna.com'
+port = 4321
+run = False
+
 pygame.init()
 win = pygame.display.set_mode((1920,1080), pygame.FULLSCREEN)
 pygame.display.set_caption("Stight Fik")
 
 clock = pygame.time.Clock()
+
+#Creating the menu
+def set_server_ip(ip):
+     serverip = ip
+def start_game():
+     run = True
+menu = pygame_menu.Menu('Welcome', 1920, 1080,theme=pygame_menu.themes.THEME_BLUE)
+menu.add.text_input('Name: ', default='John Doe')
+menu.add.text_input('Server Adress: ', default='mc.skilakeanna.com')
+menu.add.text_input('Sever Port: ', default='4321')
+menu.add.button('Play', start_game)
+menu.add.button('Quit', pygame_menu.events.EXIT)
+
+#More menu stuff
+while run == False:
+
+    events = pygame.event.get()
+    for event in events:
+        if event.type == pygame.QUIT:
+            exit()
+
+    if menu.is_enabled():
+        menu.update(events)
+        menu.draw(win)
+
+    pygame.display.update()
+pygame.display.update
 
 
 class Player(object):
@@ -47,7 +79,7 @@ height =  128
 xvel=0.5
 yvel=0
 isJumping=False
-run = True
+run = False
 while run:
  for event in pygame.event.get():
    if event.type == pygame.QUIT:
