@@ -74,6 +74,7 @@ isJumping=False
 
 while True:
  #menu handling
+ events = pygame.event.get()
  if run == False:
      menu.update(events)
      menu.draw(win)
