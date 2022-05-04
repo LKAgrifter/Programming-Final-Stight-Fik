@@ -101,12 +101,13 @@ while run:
       isJumping=True
  if keys[pygame.K_ESCAPE]:
       run=False
- win.fill((55,155,255))         
- pygame.draw.rect(win, (205,15,15), (x,y,width,height))
- pygame.draw.rect(win, (91,212,41), (0,1080-220,1920,220))
- player = Player(200,200,2)
- Player2 = Player(800,300,3)
- Player3 = Player(1600,400,4)
+ if menu.is_enabled() == False:
+     win.fill((55,155,255))         
+     pygame.draw.rect(win, (205,15,15), (x,y,width,height))
+     pygame.draw.rect(win, (91,212,41), (0,1080-220,1920,220))
+     player = Player(200,200,2)
+     Player2 = Player(800,300,3)
+     Player3 = Player(1600,400,4)
  pygame.display.update()
  
 
