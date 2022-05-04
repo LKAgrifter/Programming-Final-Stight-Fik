@@ -24,13 +24,14 @@ clock = pygame.time.Clock()
 def set_server_ip(ip):
      serverip = ip
 def start_game():
+     global run
      run = True
-     menu.disable()
+#     menu.disable()
      print('billybob')
 menu = pygame_menu.Menu('Welcome', 1920, 1080,theme=pygame_menu.themes.THEME_BLUE)
 menu.add.text_input('Name: ', default='John Doe')
-menu.add.text_input('Server Adress: ', default='mc.skilakeanna.com')
-menu.add.text_input('Sever Port: ', default='4321')
+serverip = menu.add.text_input('Server Adress: ', default='mc.skilakeanna.com')
+port = menu.add.text_input('Sever Port: ', default='4321')
 menu.add.button('Play', start_game)
 menu.add.button('Quit', pygame_menu.events.EXIT)
 
@@ -70,13 +71,13 @@ xvel=0.5
 yvel=0
 isJumping=False
 run = True
-while run:
+while True:
  #menu handling
  events = pygame.event.get()
  for event in events:
      if event.type == pygame.QUIT:
           exit()
-     if menu.is_enabled() == True:
+     if run == False:
           menu.update(events)
           menu.draw(win)
      else:
@@ -101,7 +102,7 @@ while run:
       isJumping=True
  if keys[pygame.K_ESCAPE]:
       run=False
- if menu.is_enabled() == False:
+ if run == True:
      win.fill((55,155,255))         
      pygame.draw.rect(win, (205,15,15), (x,y,width,height))
      pygame.draw.rect(win, (91,212,41), (0,1080-220,1920,220))
@@ -109,7 +110,5 @@ while run:
      Player2 = Player(800,300,3)
      Player3 = Player(1600,400,4)
  pygame.display.update()
- 
-
 
 pygame.quit()
