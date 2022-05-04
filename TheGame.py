@@ -70,23 +70,15 @@ height =  128
 xvel=0.5
 yvel=0
 isJumping=False
-run = True
+
+
 while True:
  #menu handling
- events = pygame.event.get()
- for event in events:
-     if event.type == pygame.QUIT:
-          exit()
-     if run == False:
-          menu.update(events)
-          menu.draw(win)
-     else:
-          pass
+ if run == False:
+     menu.update(events)
+     menu.draw(win)
      pygame.display.update()
  #game handling
- for event in pygame.event.get():
-   if event.type == pygame.QUIT:
-     run =False
  if y+128>1080-220:
       isJumping=False
       y=1080-220-128
