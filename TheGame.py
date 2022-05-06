@@ -32,7 +32,7 @@ def start_game():
 menu = pygame_menu.Menu('Welcome To Stight Fik', 1920, 1080,theme=pygame_menu.themes.THEME_BLUE)
 name_prompt = menu.add.text_input('Name: ', default='John Doe')
 serverip_prompt = menu.add.text_input('Server Address: ', default='mc.skilakeanna.com')
-port_prompt = menu.add.text_input('Sever Port: ', default=4321)
+port_prompt = menu.add.text_input('Sever Port: ', default=4321,input_type=pygame_menu.locals.INPUT_INT)
 menu.add.button('Play', start_game)
 menu.add.button('Quit', pygame_menu.events.EXIT)
 

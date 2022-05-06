@@ -15,6 +15,11 @@ class Player:
     self.y = 50
     self.ownerid = UID
 
+class Server:
+  def __init__(self):
+    self.running = True
+
+
 minionmap = {}
 
 def updateWorld(message):
