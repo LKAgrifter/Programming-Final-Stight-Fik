@@ -6,6 +6,7 @@ import pygame_menu
 import pickle
 import select
 import socket
+from player import Player
 
 BUFFRERSIZE = 2048
 
@@ -65,60 +66,12 @@ menu.add.button('Play', start_game)
 menu.add.button('Quit', pygame_menu.events.EXIT)
 
 
-#More menu stuff
+#Player Physics
 
 gravity = .005
-
-class Player(object):
-     def __init__(self,id,x,y):
-          self.x = x
-          self.y = y
-          self.xvel = .5
-          self.yvel = 0
-          self.UID = id
-          self.isJumping = False
-          super().__init__()
-     def move(self):
-          keys=pygame.key.get_pressed()
-          if keys[pygame.K_LEFT]:
-               self.x-= xvel
-          if keys[pygame.K_RIGHT]:
-               self.x+=xvel
-          self.Jump(keys)
-     def Jump(self,keys):
-          if keys[pygame.K_UP] and self.isJumping == False:
-               self.y -=1
-               self.yvel = -1
-               self.y += yvel
-               self.isJumping = True
-          if self.isJumping == True:
-               self.yvel +=gravity
-               if self.y+96 >= 860:
-                    self.yvel = 0
-                    self.y=860-96
-                    self.isJumping=False
-               else:
-                    self.y += self.yvel
-               
-     def draw(self):
-          pygame.draw.rect(win,(205,15,15),(self.x,self.y,32,96))
      
-     #def move(self):
-     #    self.keyinput()
-     # Position and direction
-     #     self.vec = 0
-     #     self.vx = 0
-     #     self.pos = self.vec((x, y))
-     #     self.vel = self.vec(0,0)
-     #     self.acc = self.vec(0,0)
-     
-x = 40
-y = 30
-width = 48
-height =  128
 xvel=0.5
 yvel=0
-isJumping=False
 
 #Let's Make Some Players!
 player1=Player(1,200,200)
@@ -142,30 +95,15 @@ while True:
           port = port_prompt.get_value()
 
  #game handling
- if y+128>1080-220:
-      isJumping=False
-      y=1080-220-128
- yvel+=gravity
- y+=yvel
  keys=pygame.key.get_pressed()
- if keys[pygame.K_LEFT]:
-      x-=xvel
- if keys[pygame.K_RIGHT]:
-      x+=xvel
- if keys[pygame.K_UP] and isJumping==False:
-      yvel=-1
-      isJumping=True
  if keys[pygame.K_ESCAPE]:
       run=False
  if run == True:
      win.fill((55,155,255))         
-     pygame.draw.rect(win, (205,15,15), (x,y,width,height))
      pygame.draw.rect(win, (91,212,41), (0,1080-220,1920,220))
-     #Player2 = Player(800,300,3)
-     #Player3 = Player(1600,400,4)
-     player1.draw()
+     player1.draw(win)
      player1.move()
-     player2.draw()
+     player2.draw(win)
      player2.move()
  if keys[pygame.K_p]:
      print(port)
