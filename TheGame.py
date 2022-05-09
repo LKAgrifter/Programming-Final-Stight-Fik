@@ -82,7 +82,6 @@ while True:
      pygame.draw.rect(win, (91,212,41), (0,1080-220,1920,220))
      player1.move(win)
      player2.move(win)
+     #Network(serverip,port)
 
  pygame.display.update()
-
-pygame.quit()
