@@ -13,13 +13,14 @@ class Player(object):
           self.UID = id
           self.isJumping = False
           super().__init__()
-     def move(self):
+     def move(self,win):
           keys=pygame.key.get_pressed()
           if keys[pygame.K_LEFT]:
                self.x-= xvel
           if keys[pygame.K_RIGHT]:
                self.x+=xvel
           self.Jump(keys)
+          self.draw(win)
      def Jump(self,keys):
           if keys[pygame.K_UP] and self.isJumping == False:
                self.y -=1
