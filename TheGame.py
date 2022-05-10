@@ -4,6 +4,8 @@ import subprocess
 # implement pip as a subprocess:
 subprocess.check_call([sys.executable, '-m', 'pip', 'install',
 'pygame'])
+subprocess.check_call([sys.executable, '-m', 'pip', 'install',
+'pygame_menu'])
 
 # process output with an API in the subprocess module:
 reqs = subprocess.check_output([sys.executable, '-m', 'pip',
