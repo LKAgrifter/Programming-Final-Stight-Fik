@@ -24,14 +24,18 @@ p2 = "p2"
 p3 = "p3"
 p4 = "p4"
 
-
 # Server Testing
 d = {1:"hi", 2: "there"}
 msg = pickle.dumps(d)
 print(msg)
 
 pygame.init()
-win = pygame.display.set_mode((1920,1080), pygame.FULLSCREEN)
+
+# Display Info
+Display = pygame.display.Info()
+
+display_win = pygame.display.set_mode((Display.current_w,Display.current_h))
+win = pygame.Surface((1920,1080))
 pygame.display.set_caption("Stight Fik")
 
 clock = pygame.time.Clock()
@@ -45,7 +49,7 @@ def start_game():
 #     menu.disable()
      print('billybob')
 
-menu = pygame_menu.Menu('Welcome To Stight Fik', 1920, 1080,theme=pygame_menu.themes.THEME_BLUE)
+menu = pygame_menu.Menu('Welcome To Stight Fik',Display.current_w,Display.current_h,theme=pygame_menu.themes.THEME_BLUE)
 name_prompt = menu.add.text_input('Name: ', default='John Doe')
 serverip_prompt = menu.add.text_input('Server Address: ', default='127.0.0.1')
 port_prompt = menu.add.text_input('Sever Port: ', default=4321,input_type=pygame_menu.locals.INPUT_INT)
@@ -91,6 +95,10 @@ while True:
      player1.move(win)
      player2.move(win)
      #Network(serverip,port)
+ #display scaling
+ scaled_win = pygame.transform.scale(win, display_win.get_size())
+ display_win.blit(scaled_win, (0,0))
+ pygame.display.flip()
 
  pygame.display.update()
 

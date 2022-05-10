@@ -20,9 +20,11 @@ class Player(object):
             if keys[pygame.K_LEFT]:
                 self.dir=1
                 self.x-= xvel
-            if keys[pygame.K_RIGHT]:
+            elif keys[pygame.K_RIGHT]:
                 self.dir=2
                 self.x+=xvel
+            else:
+                self.dir=0
           self.Jump(keys)
           self.draw(win)
      def Jump(self,keys):
