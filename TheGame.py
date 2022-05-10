@@ -34,12 +34,12 @@ pygame.init()
 # Display Info
 Display = pygame.display.Info()
 
-display_win = pygame.display.set_mode((Display.current_w,Display.current_h))
+display_win = pygame.display.set_mode((Display.current_w,Display.current_h),pygame.FULLSCREEN)
 win = pygame.Surface((1920,1080))
 pygame.display.set_caption("Stight Fik")
 
 clock = pygame.time.Clock()
-
+clock.tick(60)
 #Creating the menu
 def set_server_ip(ip):
      serverip = ip
