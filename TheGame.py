@@ -9,13 +9,16 @@ import socket
 from player import Player
 from network import Network
 
-BUFFRERSIZE = 2048
-
 # Server info
 serverip = 'minecraft.skilakeanna.com'
 port = 4321
 run = False
+
+#Player Names
 name='Billy Bob'
+p2 = "p2"
+p3 = "p3"
+p4 = "p4"
 
 # Server Testing
 d = {1:"hi", 2: "there"}
@@ -39,7 +42,7 @@ def start_game():
 
 menu = pygame_menu.Menu('Welcome To Stight Fik', 1920, 1080,theme=pygame_menu.themes.THEME_BLUE)
 name_prompt = menu.add.text_input('Name: ', default='John Doe')
-serverip_prompt = menu.add.text_input('Server Address: ', default='mc.skilakeanna.com')
+serverip_prompt = menu.add.text_input('Server Address: ', default='127.0.0.1')
 port_prompt = menu.add.text_input('Sever Port: ', default=4321,input_type=pygame_menu.locals.INPUT_INT)
 menu.add.button('Play', start_game)
 menu.add.button('Quit', pygame_menu.events.EXIT)
@@ -85,3 +88,7 @@ while True:
      #Network(serverip,port)
 
  pygame.display.update()
+
+
+# Made with the help of this lovely tutorial
+# https://www.techwithtim.net/tutorials/python-online-game-tutorial/sending-objects/
