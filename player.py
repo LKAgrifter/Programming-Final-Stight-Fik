@@ -3,7 +3,7 @@ import pygame
 gravity = .005
 xvel=0.5
 yvel=0
-
+#bro?
 class Player(object):
      def __init__(self,id,x,y):
           self.x = x
