@@ -34,7 +34,7 @@ pygame.init()
 # Display Info
 Display = pygame.display.Info()
 
-display_win = pygame.display.set_mode((Display.current_w,Display.current_h))
+display_win = pygame.display.set_mode((Display.current_w,Display.current_h),pygame.FULLSCREEN)
 win = pygame.Surface((1920,1080))
 pygame.display.set_caption("Stight Fik")
 
