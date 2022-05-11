@@ -39,7 +39,7 @@ win = pygame.Surface((1920,1080))
 pygame.display.set_caption("Stight Fik")
 
 clock = pygame.time.Clock()
-clock.tick(60)
+
 #Creating the menu
 def set_server_ip(ip):
      serverip = ip
@@ -69,6 +69,7 @@ player1=Player(1,200,200)
 player2 = Player(2,300,300)
 
 while True:
+ clock.tick(60)
  #menu handling      
  # Name, IP, and Port
  if name_prompt.get_value() != name:
@@ -96,11 +97,14 @@ while True:
      player2.move(win)
      #Network(serverip,port)
  #display scaling
+ 
  scaled_win = pygame.transform.scale(win, display_win.get_size())
  display_win.blit(scaled_win, (0,0))
  pygame.display.flip()
+ 
 
  pygame.display.update()
+ print(clock.get_fps())
 
 
 # Made with the help of this lovely tutorial
