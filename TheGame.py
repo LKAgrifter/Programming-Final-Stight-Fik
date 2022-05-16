@@ -65,8 +65,8 @@ xvel=0.5
 yvel=0
 
 #Let's Make Some Players!
-player1 = Player(1,200,200)
-player2 = Player(2,300,300)
+player1 = Player(1,200,1000)
+player2 = Player(2,1720,1000)
 
 while True:
  clock.tick(60)
