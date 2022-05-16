@@ -96,7 +96,7 @@ while True:
      player1.move(win,pygame.K_a,pygame.K_d,pygame.K_w)
      player2.move(win,pygame.K_LEFT,pygame.K_RIGHT,pygame.K_UP)
 
-     #Network(serverip,port)
+ #Network(serverip,port)
  #display scaling
  
  scaled_win = pygame.transform.scale(win, display_win.get_size())

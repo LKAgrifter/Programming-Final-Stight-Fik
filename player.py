@@ -47,4 +47,22 @@ class Player(object):
                 self.y += self.yvel
                
      def draw(self,win):
-          pygame.draw.rect(win,(205,15,15),(self.x,self.y,32,96))
+          self.body=pygame.draw.rect(win,(205,15,15),(self.x,self.y,32,96))
+          self.rightArm= pygame.draw.rect(win,(205,15,15),(self.x+32,self.y+20,32,8))
+          self.leftArm=pygame.draw.rect(win,(205,15,15),(self.x-32,self.y+20,32,8),)
+          #Rectangle(win,self.x,self.y,32,8,45)
+
+class Rectangle():
+
+    def __init__(self, parent, xpos, ypos, width, height, angle):
+      super(Rectangle, self).__init__(width, height)
+      self.xpos = xpos
+      self.ypos = ypos
+      self.parent = parent
+      self.rotate(angle)
+
+    def update(self, parent):
+      parent.blit(self, (self.xpos, self.ypos))
+
+    def rotate(self, angle):
+          pygame.transform.rotate(self,angle)
