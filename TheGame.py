@@ -105,8 +105,7 @@ while True:
  
 
  pygame.display.update()
- print(clock.get_fps())
-
+ #print(clock.get_fps())
 
 # Made with the help of this lovely tutorial
 # https://www.techwithtim.net/tutorials/python-online-game-tutorial/sending-objects/

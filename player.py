@@ -8,7 +8,7 @@ class Player(object):
      def __init__(self,id,x,y):
           self.x = x
           self.y = y
-          self.xvel = 2
+          self.xvel = 4
           self.yvel = 0
           self.UID = id
           self.isJumping = False
