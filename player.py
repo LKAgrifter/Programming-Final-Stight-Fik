@@ -39,6 +39,9 @@ class Player(object):
           self.body=pygame.draw.rect(win,color,(self.x,self.y,32,96))
           self.rightArm= pygame.draw.rect(win,color,(self.x+32,self.y+20,32,8))
           self.leftArm=pygame.draw.rect(win,color,(self.x-32,self.y+20,32,8),)
+     def powerups(self):
+        #Powerup modifiers
+        pass
 
 class Rectangle():
 
