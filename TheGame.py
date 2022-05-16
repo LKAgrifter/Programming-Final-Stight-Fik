@@ -1,6 +1,6 @@
 from gettext import install
 from importstuffs import installRequiredPackages
-installRequiredPackages()
+#installRequiredPackages()
 
 import pygame
 import sys
@@ -93,8 +93,8 @@ while True:
  if run == True:
      win.fill((55,155,255))         
      pygame.draw.rect(win, (91,212,41), (0,1080-220,1920,220))
-     player1.move(win,pygame.K_a,pygame.K_d,pygame.K_w)
-     player2.move(win,pygame.K_LEFT,pygame.K_RIGHT,pygame.K_UP)
+     player1.move(win,pygame.K_a,pygame.K_d,pygame.K_w,pygame.K_s,(245,15,15))
+     player2.move(win,pygame.K_LEFT,pygame.K_RIGHT,pygame.K_UP,pygame.K_DOWN,(15,245,15))
 
  #Network(serverip,port)
  #display scaling
