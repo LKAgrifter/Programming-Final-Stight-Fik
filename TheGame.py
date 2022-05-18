@@ -3,6 +3,7 @@ from importstuffs import installRequiredPackages
 #installRequiredPackages()
 
 import pygame
+import time
 import sys
 import random
 import subprocess
@@ -31,6 +32,10 @@ print(msg)
 
 pygame.init()
 
+#Let's Make Some NOISE!
+start_sound = pygame.mixer.Sound('WindowsXPStartup.wav')
+quit_sound = pygame.mixer.Sound('WindowsXPShutdown.wav')
+
 # Display Info
 Display = pygame.display.Info()
 
@@ -46,15 +51,23 @@ def set_server_ip(ip):
 def start_game():
      global run
      run = True
+     pygame.mixer.Sound.play(start_sound)
+     time.sleep(4)
 #     menu.disable()
      print('billybob')
+
+def quit_game():
+     pygame.mixer.Sound.play(quit_sound)
+     time.sleep(2)
+     pygame.quit()
+     sys.exit()
 
 menu = pygame_menu.Menu('Welcome To Stight Fik',Display.current_w,Display.current_h,theme=pygame_menu.themes.THEME_BLUE)
 name_prompt = menu.add.text_input('Name: ', default='John Doe')
 serverip_prompt = menu.add.text_input('Server Address: ', default='127.0.0.1')
 port_prompt = menu.add.text_input('Sever Port: ', default=4321,input_type=pygame_menu.locals.INPUT_INT)
 menu.add.button('Play', start_game)
-menu.add.button('Quit', pygame_menu.events.EXIT)
+menu.add.button('Quit', quit_game)
 
 
 #Player Physics
@@ -67,6 +80,8 @@ yvel=0
 #Let's Make Some Players!
 player1 = Player(1,200,1000)
 player2 = Player(2,1720,1000)
+
+
 
 while True:
  clock.tick(60)

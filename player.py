@@ -19,7 +19,7 @@ class Player(object):
           elif keys[key2]:
               self.x+= self.xvel
           self.Jump(keys,key3)
-          self.draw(win,color)]
+          self.draw(win,color)
      def Jump(self,keys,key3):
           if keys[key3] and self.isJumping == False:
                self.y -=5
