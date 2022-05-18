@@ -52,7 +52,7 @@ def start_game():
      global run
      run = True
      pygame.mixer.Sound.play(start_sound)
-     time.sleep(4)
+     time.sleep(2)
 #     menu.disable()
      print('billybob')
 
