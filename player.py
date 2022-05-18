@@ -12,14 +12,14 @@ class Player(object):
           self.isJumping = False
           self.dir=0
           super().__init__()
-     def move(self,win,key1,key2,key3,key4,color):
+     def move(self,win,key1,key2,key3,color):
           keys=pygame.key.get_pressed()
           if keys[key1]:
               self.x-= self.xvel
           elif keys[key2]:
               self.x+= self.xvel
           self.Jump(keys,key3)
-          self.draw(win,color)]
+          self.draw(win,color)
      def Jump(self,keys,key3):
           if keys[key3] and self.isJumping == False:
                self.y -=5
