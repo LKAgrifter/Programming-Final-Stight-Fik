@@ -68,6 +68,11 @@ yvel=0
 player1 = Player(1,200,1000)
 player2 = Player(2,1720,1000)
 
+keys=pygame.key.get_pressed()
+if keys[pygame.K_g]:
+     bullet=pygame.draw.circle(win,(245,245,15),(1000,500,10))
+     bullet.centerx+=1
+
 while True:
  clock.tick(60)
  #menu handling      
@@ -93,8 +98,8 @@ while True:
  if run == True:
      win.fill((55,155,255))         
      pygame.draw.rect(win, (91,212,41), (0,1080-220,1920,220))
-     player1.move(win,pygame.K_a,pygame.K_d,pygame.K_w,pygame.K_s,(245,15,15))
-     player2.move(win,pygame.K_LEFT,pygame.K_RIGHT,pygame.K_UP,pygame.K_DOWN,(15,245,15))
+     player1.move(win,pygame.K_a,pygame.K_d,pygame.K_w,(245,15,15))
+     player2.move(win,pygame.K_LEFT,pygame.K_RIGHT,pygame.K_UP,(15,245,15))
 
  #Network(serverip,port)
  #display scaling
