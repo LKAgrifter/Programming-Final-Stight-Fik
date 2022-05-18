@@ -12,7 +12,7 @@ class Player(object):
           self.isJumping = False
           self.dir=0
           super().__init__()
-     def move(self,win,key1,key2,key3,key4,color):
+     def move(self,win,key1,key2,key3,color):
           keys=pygame.key.get_pressed()
           if keys[key1]:
               self.x-= self.xvel
