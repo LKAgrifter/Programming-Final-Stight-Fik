@@ -25,6 +25,9 @@ class Player(object):
           self.draw(win,color)
           if keys[key4]:
                self.fire_bullet(self.x,self.y,win)
+     def reset(self,x,y):
+          self.x=x
+          self.y=y
      def Jump(self,keys,key3):
           if keys[key3] and self.isJumping == False:
                self.y -=5

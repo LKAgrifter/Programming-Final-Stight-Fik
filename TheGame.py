@@ -130,7 +130,18 @@ while True:
 
       collide1 = pygame.Rect.colliderect(player1.body,player2.body)
       if collide1:
-           print('hits!')
+           if player1.body.centery>player2.body.centery:
+                print('red wins')
+                player1.reset(200,1000)
+                player2.reset(1720,1000)
+           elif player1.body.centery<player2.body.centery:
+                print('green wins')
+                player1.reset(200,1000)
+                player2.reset(1720,1000)
+           else:
+                print('draw')
+                player1.reset(200,1000)
+                player2.reset(1720,1000)
       for i in range(3):
            cloud=pygame.draw.rect(win, (225,225,255), (random.randrange(0,1920),random.randrange(0,600),random.randrange(50,900),random.randrange(10,100)))
  if keys[pygame.K_g]:
