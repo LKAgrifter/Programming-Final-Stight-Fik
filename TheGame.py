@@ -32,9 +32,19 @@ print(msg)
 
 pygame.init()
 
+
 #Let's Make Some NOISE!
 start_sound = pygame.mixer.Sound('WindowsXPStartup.wav')
 quit_sound = pygame.mixer.Sound('WindowsXPShutdown.wav')
+GiveUp = pygame.mixer.music.load('GiveUp.mp3')
+pygame.mixer.music.play(-1)
+
+def paused():
+    pygame.mixer.music.pause()
+def unpause():
+    global pause
+    pygame.mixer.music.unpause()
+    pause = False
 
 # Display Info
 Display = pygame.display.Info()
@@ -102,6 +112,8 @@ while True:
  #game handling
  keys=pygame.key.get_pressed()
  fire=False
+ if keys[pygame.K_n]:
+      unpause
  if keys[pygame.K_ESCAPE]:
       run=False
  if run == True:
