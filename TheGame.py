@@ -52,7 +52,7 @@ def start_game():
      global run
      run = True
      pygame.mixer.Sound.play(start_sound)
-     time.sleep(4)
+     time.sleep(2)
 #     menu.disable()
      print('billybob')
 
@@ -105,6 +105,7 @@ while True:
  if keys[pygame.K_ESCAPE]:
       run=False
  if run == True:
+<<<<<<< HEAD
       win.fill((55,155,255))
       for i in range(7):
            cloudBack=pygame.draw.rect(win, (150,185,235), (random.randrange(0,1920),random.randrange(0,750),random.randrange(25,450),random.randrange(5,50)))
@@ -117,6 +118,17 @@ while True:
 
       for i in range(3):
            cloud=pygame.draw.rect(win, (225,225,255), (random.randrange(0,1920),random.randrange(0,600),random.randrange(50,900),random.randrange(10,100)))
+=======
+      win.fill((55,155,255))         
+      pygame.draw.rect(win, (91,212,41), (0,1080-220,1920,220))
+      player1.move(win,pygame.K_a,pygame.K_d,pygame.K_w,pygame.K_s,(245,15,15))
+      player2.move(win,pygame.K_LEFT,pygame.K_RIGHT,pygame.K_UP,pygame.K_DOWN,(15,245,15))
+ if keys[pygame.K_g]:
+      fire=True
+      bullet=pygame.draw.circle(win,(245,245,15),(1000,500),10)
+ if fire==True:
+      bullet.centerx+=1
+>>>>>>> b5a62e41045b4c7c12c0047e8f5bd9af6b8df85b
 
  #Network(serverip,port)
  #display scaling
