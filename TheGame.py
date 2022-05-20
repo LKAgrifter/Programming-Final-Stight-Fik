@@ -114,7 +114,7 @@ while True:
  keys=pygame.key.get_pressed()
  fire=False
  if keys[pygame.K_n]:
-      unpause
+      unpause()
  if keys[pygame.K_ESCAPE]:
       run=False
  if run == True:
