@@ -45,6 +45,7 @@ def unpause():
     global pause
     pygame.mixer.music.unpause()
     pause = False
+paused()
 
 # Display Info
 Display = pygame.display.Info()
@@ -127,6 +128,9 @@ while True:
       player1.move(win,pygame.K_a,pygame.K_d,pygame.K_w,pygame.K_s,(245,15,15))
       player2.move(win,pygame.K_LEFT,pygame.K_RIGHT,pygame.K_UP,pygame.K_DOWN,(15,245,15))
 
+      collide1 = pygame.Rect.colliderect(player1.body,player2.body)
+      if collide1:
+           print('hits!')
       for i in range(3):
            cloud=pygame.draw.rect(win, (225,225,255), (random.randrange(0,1920),random.randrange(0,600),random.randrange(50,900),random.randrange(10,100)))
  if keys[pygame.K_g]:
