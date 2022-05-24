@@ -37,6 +37,8 @@ pygame.init()
 start_sound = pygame.mixer.Sound('WindowsXPStartup.wav')
 quit_sound = pygame.mixer.Sound('WindowsXPShutdown.wav')
 GiveUp = pygame.mixer.music.load('GiveUp.mp3')
+Green = pygame.mixer.Sound('Green.mp3')
+Red = pygame.mixer.Sound('Red.mp3')
 pygame.mixer.music.play(-1)
 
 def paused():
@@ -132,11 +134,13 @@ while True:
       # Player Win Condish
       if collide1:
            if player1.body.centery>player2.body.centery:
-                print('red wins')
+                print('green wins')
+                pygame.mixer.Sound.play(Green)
                 player1.reset(200,1000)
                 player2.reset(1720,1000)
            elif player1.body.centery<player2.body.centery:
-                print('green wins')
+                print('red wins')
+                pygame.mixer.Sound.play(Red)
                 player1.reset(200,1000)
                 player2.reset(1720,1000)
            else:
