@@ -129,6 +129,7 @@ while True:
       player2.move(win,pygame.K_LEFT,pygame.K_RIGHT,pygame.K_UP,pygame.K_DOWN,(15,245,15))
 
       collide1 = pygame.Rect.colliderect(player1.body,player2.body)
+      # Player Win Condish
       if collide1:
            if player1.body.centery>player2.body.centery:
                 print('red wins')
